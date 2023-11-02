@@ -30,9 +30,24 @@ class BinarySearchTree:
                     return
                 return self.insertNode(element, node.right)
 
-
+    def search(self, element):
+        return self.__searchNode(element, self.root)
+    
+    def __searchNode(self, element, root):
+        if root is None:
+            return
+    
+        if (root.element == element):
+            return root.element
+        if (element < root.element):
+            return self.__searchNode(element, root.left)
+        if (element > root.element):
+            return self.__searchNode(element, root.right)
+        
 tree = BinarySearchTree()
 tree.insert(11)
 tree.insert(13)
 tree.insert(10)
+print(tree.search(11))
+print(tree.search(20))
 
