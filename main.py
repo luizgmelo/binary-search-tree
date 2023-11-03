@@ -97,7 +97,14 @@ class BinarySearchTree:
                 node.element = successor.element
                 node.right = self.__removeNode(successor.element, node.right)
 
-                
+    def postOrder(self, node=None):
+       if node is None:
+           node = self.root
+       if node.left:
+        self.postOrder(node.left)
+       if node.right:
+        self.postOrder(node.right)
+       print(node.element) 
 
                 
 
@@ -109,7 +116,5 @@ tree.insert(13)
 tree.insert(12)
 tree.insert(14)
 tree.insert(10)
-print(tree.search(11))
-print(tree.search(20))
-print(tree.remove(13))
-print()
+tree.insert(9)
+tree.postOrder()
