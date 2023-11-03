@@ -125,11 +125,39 @@ class BinarySearchTree:
             self.preOrder(node.right)
 
 
+    def treeHeight(self):
+        return self.__treeHeight(self.root)
+
+
+    def __treeHeight(self, node):
+        if node is None or node.left is None and node.right is None:
+            return 0
+        # maximous left height, maximous right height
+        return max(self.__treeHeight(node.left) + 1, self.__treeHeight(node.right) + 1)
+
+# 7 -> return 2, 10 -> 3, 11 -> max(3, 5)
+#
+#    11
+#   /  \
+#  10  13
+# /    / \
+# 7   12  14
+#  \        \
+#   8        15 
+#    \        \
+#     9       18
+#               \
+#               20
 tree = BinarySearchTree()
 tree.insert(11)
 tree.insert(13)
 tree.insert(12)
 tree.insert(14)
 tree.insert(10)
+tree.insert(7)
+tree.insert(8)
 tree.insert(9)
-tree.preOrder()
+tree.insert(15)
+tree.insert(18)
+tree.insert(20)
+print(tree.treeHeight())
