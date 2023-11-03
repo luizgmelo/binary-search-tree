@@ -106,7 +106,14 @@ class BinarySearchTree:
         self.postOrder(node.right)
        print(node.element) 
 
-                
+    def inOrder(self, node=None):
+        if node is None:
+            node = self.root
+        if node.left:
+            self.inOrder(node.left)
+        print(node.element)
+        if node.right:
+            self.inOrder(node.right)
 
 
 
@@ -117,4 +124,4 @@ tree.insert(12)
 tree.insert(14)
 tree.insert(10)
 tree.insert(9)
-tree.postOrder()
+tree.inOrder()
