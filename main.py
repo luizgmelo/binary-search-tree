@@ -146,7 +146,16 @@ class BinarySearchTree:
         if node.element < key:
             return self.__nodeLevel(key, node.right, level = level + 1)
 
-
+    def size(self):
+        return self.__sizeTree(self.root)
+    
+    def __sizeTree(self, node):
+        if node is None:
+            return 0
+        if node.left is None and node.right is None:
+            return 1
+        return self.__sizeTree(node.left) + 1 + self.__sizeTree(node.right)
+       
 # 7 -> return 2, 10 -> 3, 11 -> max(3, 5)
 #
 #    11
@@ -172,4 +181,4 @@ tree.insert(9)
 tree.insert(15)
 tree.insert(18)
 tree.insert(20)
-print(tree.nodeLevel(12))
+print(tree.size())
