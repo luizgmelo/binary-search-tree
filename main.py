@@ -135,6 +135,18 @@ class BinarySearchTree:
         # maximous left height, maximous right height
         return max(self.__treeHeight(node.left) + 1, self.__treeHeight(node.right) + 1)
 
+    def nodeLevel(self, key):
+        return self.__nodeLevel(key, self.root)
+    
+    def __nodeLevel(self, key, node, level=1):
+        if node.element == key:
+            return level
+        if node.element > key:
+            return self.__nodeLevel(key, node.left, level = level + 1)
+        if node.element < key:
+            return self.__nodeLevel(key, node.right, level = level + 1)
+
+
 # 7 -> return 2, 10 -> 3, 11 -> max(3, 5)
 #
 #    11
@@ -160,4 +172,4 @@ tree.insert(9)
 tree.insert(15)
 tree.insert(18)
 tree.insert(20)
-print(tree.treeHeight())
+print(tree.nodeLevel(12))
