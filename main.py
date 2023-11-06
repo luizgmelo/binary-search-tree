@@ -4,7 +4,7 @@ class Node:
         self.left = None
         self.right = None
         self.parent = None
-
+        self.height = 1
 
 class BinarySearchTree:
     def __init__(self):
@@ -181,4 +181,4 @@ tree.insert(9)
 tree.insert(15)
 tree.insert(18)
 tree.insert(20)
-print(tree.size())
+#print(tree.size())
